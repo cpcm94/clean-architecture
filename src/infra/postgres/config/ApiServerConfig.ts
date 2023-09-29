@@ -9,4 +9,5 @@ export class ApiServerConfig {
   )
     .required()
     .asString();
+  //   public static readonly HOST: string = get("API_HOST").required().asString();
 }

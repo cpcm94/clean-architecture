@@ -5,16 +5,12 @@ import { UserEntity } from "@/domain/entities/user.entity";
 import * as bcrypt from "bcryptjs";
 
 export interface CreateUser {
-  create: (user: UserEntity) => Promise<{ id: string }>;
+  create: (user: UserEntity) => Promise<UserDto>;
 }
 
 export class CreateUserService implements CreateUser {
   constructor(private readonly createUserRepository: CreateUserRepository) {}
-  async create({
-    name,
-    email,
-    password,
-  }: CreateUserDto): Promise<{ id: string }> {
+  async create({ name, email, password }: CreateUserDto): Promise<UserDto> {
     // test props
     const salt = await bcrypt.genSalt();
     const hashPassword = await bcrypt.hash(password, salt);

@@ -1,10 +1,6 @@
-import { CreateUserDto } from "@/application/dto/user/create-user.dto";
 import { UserDto } from "@/application/dto/user/user";
-
-export interface GenerateUserDto extends CreateUserDto {
-  salt: string;
-}
+import { GenerateUserDto } from "./user-repository";
 
 export interface CreateUserRepository {
-  createUser: (createUserDto: GenerateUserDto) => Promise<{ id: string }>;
+  createUser: (createUserDto: GenerateUserDto) => Promise<UserDto>;
 }
