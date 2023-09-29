@@ -1,0 +1,27 @@
+{
+  "name": "pdi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.4",
+    "@types/jest": "^29.5.5",
+    "@types/node": "^20.6.5",
+    "@types/ramda": "^0.29.4",
+    "jest": "^29.7.0",
+    "ramda": "^0.29.0",
+    "ts-jest": "^29.1.1",
+    "typeorm": "^0.3.17",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "env-var": "^7.4.1"
+  }
+}
