@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "env-var": "^7.4.1"
+    "env-var": "^7.4.1",
+    "typeorm-transactional-cls-hooked": "^0.1.21"
   }
 }
