@@ -1,7 +1,7 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { TypeOrmCompany } from "../company/type-orm-company";
+import { TypeOrmCompany } from "../company/type-orm-company.entity";
 
-@Entity()
+@Entity("Location")
 export class TypeOrmLocation {
   @PrimaryGeneratedColumn("uuid")
   id: string;
@@ -19,13 +19,13 @@ export class TypeOrmLocation {
   city: string;
 
   @Column({ nullable: true })
-  neighborhood: string;
+  neighborhood?: string;
 
   @Column({ nullable: true })
-  street: string;
+  street?: string;
 
   @Column({ nullable: true })
-  number: string;
+  number?: string;
 
   @ManyToOne((type) => TypeOrmCompany, (company) => company.locations, {
     onDelete: "CASCADE",

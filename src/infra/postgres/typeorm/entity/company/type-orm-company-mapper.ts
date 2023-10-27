@@ -1,5 +1,5 @@
 import { CompanyEntity } from "@/domain/entities/company.entity";
-import { TypeOrmCompany } from "./type-orm-company";
+import { TypeOrmCompany } from "./type-orm-company.entity";
 
 export class TypeOrmCompanyMapper {
   public static toOrmEntity(domainCompany: CompanyEntity): TypeOrmCompany {
@@ -9,8 +9,8 @@ export class TypeOrmCompanyMapper {
     ormCompany.cnpj = domainCompany.cnpj;
     ormCompany.name = domainCompany.name;
     ormCompany.website = domainCompany.website;
-    ormCompany.user.id = domainCompany.userId;
-    //    ormCompany.locations
+    ormCompany.user = domainCompany.user;
+    ormCompany.locations = domainCompany.locations;
 
     return ormCompany;
   }
@@ -29,7 +29,8 @@ export class TypeOrmCompanyMapper {
       cnpj: ormCompany.cnpj,
       name: ormCompany.name,
       website: ormCompany.website,
-      userId: ormCompany.user.id,
+      user: ormCompany.user,
+      locations: ormCompany.locations,
     };
   }
 

@@ -5,7 +5,7 @@ export interface GenerateUserDto extends CreateUserDto {
   salt: string;
 }
 
-export interface UserRepository {
+export class UserRepository {
   createUser: (createUserDto: GenerateUserDto) => Promise<{ id: string }>;
   getUser: ({
     id,

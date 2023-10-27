@@ -1,12 +1,10 @@
-import { DeleteLocationRepository } from "@/application/repositories/location/delete-location-repository";
+import { LocationRepository } from "@/application/repositories/location/location-repository";
 import { DeleteLocation } from "@/domain/use-cases/location/delete-location";
 
 export class DeleteLocationService implements DeleteLocation {
-  constructor(
-    private readonly deleteLocationRepository: DeleteLocationRepository
-  ) {}
+  constructor(private readonly locationRepository: LocationRepository) {}
   async delete(locationId: string): Promise<void> {
     // test props
-    return this.deleteLocationRepository.deleteLocation(locationId);
+    return this.locationRepository.deleteLocation(locationId);
   }
 }

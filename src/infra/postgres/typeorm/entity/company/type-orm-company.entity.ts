@@ -5,10 +5,10 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { TypeOrmLocation } from "../location/type-orm-location";
-import { TypeOrmUser } from "../user/type-orm-user";
+import { TypeOrmLocation } from "../location/type-orm-location.entity";
+import { TypeOrmUser } from "../user/type-orm-user.entity";
 
-@Entity()
+@Entity("Company")
 export class TypeOrmCompany {
   @PrimaryGeneratedColumn("uuid")
   id: string;
@@ -20,7 +20,7 @@ export class TypeOrmCompany {
   website: string;
 
   @Column()
-  cnpj: number;
+  cnpj: string;
 
   @ManyToOne((type) => TypeOrmUser, { onDelete: "CASCADE" })
   user: TypeOrmUser;

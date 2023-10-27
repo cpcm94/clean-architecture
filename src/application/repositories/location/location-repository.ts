@@ -2,7 +2,7 @@ import { CreateLocationDto } from "@/application/dto/location/create-location.dt
 import { LocationDto } from "@/application/dto/location/location";
 import { UpdateLocationDto } from "@/application/dto/location/update-location.dto";
 
-export interface LocationRepository {
+export class LocationRepository {
   createLocation: (
     createLocationDto: CreateLocationDto
   ) => Promise<LocationDto>;
@@ -12,4 +12,9 @@ export interface LocationRepository {
     locationId: string,
     updateLocationDto: UpdateLocationDto
   ) => Promise<LocationDto>;
+  findLocation: ({
+    where,
+  }: {
+    where: Partial<LocationDto>;
+  }) => Promise<LocationDto | null>;
 }

@@ -9,7 +9,6 @@ import { TUserLoginResponse } from "./type/user-login-response";
 
 export class AuthService {
   constructor(
-    @Inject()
     private readonly userRepository: UserRepository,
 
     private readonly jwtService: JwtService

@@ -10,5 +10,5 @@ export interface UpdateCompany {
 type UpdateCompanyModel = {
   name?: string;
   website?: string;
-  cnpj?: number;
+  cnpj?: string;
 };

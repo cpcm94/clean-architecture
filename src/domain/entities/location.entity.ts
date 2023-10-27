@@ -1,3 +1,5 @@
+import { CompanyEntity } from "./company.entity";
+
 export type LocationEntity = {
   id: string;
   name: string;
@@ -7,5 +9,5 @@ export type LocationEntity = {
   neighborhood?: string;
   street?: string;
   number?: string;
-  companyId: string;
+  company: CompanyEntity;
 };

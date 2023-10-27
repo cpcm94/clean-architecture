@@ -1,3 +1,5 @@
+import { CompanyDto } from "../company/company";
+
 export type CreateLocationDto = {
   name: string;
   cep: string;
@@ -6,5 +8,5 @@ export type CreateLocationDto = {
   neighborhood?: string;
   street?: string;
   number?: string;
-  companyId: string;
+  company: CompanyDto;
 };

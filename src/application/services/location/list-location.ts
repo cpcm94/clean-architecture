@@ -1,13 +1,11 @@
-import { ListLocationsRepository } from "@/application/repositories/location/list-location-repository";
 import { LocationDto } from "@/application/dto/location/location";
 import { ListLocations } from "@/domain/use-cases/location/list-location";
+import { LocationRepository } from "@/application/repositories/location/location-repository";
 
 export class ListLocationsService implements ListLocations {
-  constructor(
-    private readonly listLocationsRepository: ListLocationsRepository
-  ) {}
+  constructor(private readonly locationRepository: LocationRepository) {}
   async list(): Promise<LocationDto[]> {
     // test props
-    return this.listLocationsRepository.listLocations();
+    return this.locationRepository.listLocations();
   }
 }

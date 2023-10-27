@@ -1,4 +1,3 @@
-import { ApiServerConfig } from "@/infra/postgres/config/ApiServerConfig";
 import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { PassportStrategy } from "@nestjs/passport";
 import { Strategy, ExtractJwt } from "passport-jwt";
@@ -12,7 +11,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
-      secretOrKey: ApiServerConfig.ACCESS_TOKEN_SECRET,
+      secretOrKey: process.env.API_ACCESS_TOKEN_SECRET || "teste",
     });
   }
 

@@ -1,7 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { TypeOrmCompany } from "../company/type-orm-company";
+import { TypeOrmCompany } from "../company/type-orm-company.entity";
 
-@Entity()
+@Entity("User")
 export class TypeOrmUser {
   @PrimaryGeneratedColumn("uuid")
   id: string;

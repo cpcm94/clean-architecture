@@ -1,5 +1,5 @@
 import { LocationEntity } from "@/domain/entities/location.entity";
-import { TypeOrmLocation } from "./type-orm-location";
+import { TypeOrmLocation } from "./type-orm-location.entity";
 import { isNil } from "ramda";
 
 export class TypeOrmLocationMapper {
@@ -10,7 +10,7 @@ export class TypeOrmLocationMapper {
     ormLocation.cep = domainLocation.cep;
     ormLocation.city = domainLocation.city;
     ormLocation.name = domainLocation.name;
-    ormLocation.company.id = domainLocation.companyId;
+    ormLocation.company = domainLocation.company;
     ormLocation.state = domainLocation.state;
 
     if (!isNil(domainLocation.neighborhood))
@@ -39,7 +39,7 @@ export class TypeOrmLocationMapper {
       cep: ormLocation.cep,
       city: ormLocation.city,
       name: ormLocation.name,
-      companyId: ormLocation.company.id,
+      company: ormLocation.company,
       neighborhood: ormLocation.neighborhood,
       street: ormLocation.street,
       number: ormLocation.number,

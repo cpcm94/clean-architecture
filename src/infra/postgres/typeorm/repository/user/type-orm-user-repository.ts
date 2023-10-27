@@ -5,15 +5,13 @@ import {
 } from "@/application/repositories/user/user-repository";
 import { isNil } from "ramda";
 import { Repository } from "typeorm";
-import { TypeOrmUser } from "../../entity/user/type-orm-user";
+import { TypeOrmUser } from "../../entity/user/type-orm-user.entity";
 import { TypeOrmUserMapper } from "../../entity/user/type-orm-user-mapper";
 
-export class TypeOrmUserRepository
-  extends Repository<TypeOrmUser>
-  implements UserRepository
-{
+export class TypeOrmUserRepository implements UserRepository {
+  constructor(private readonly userRepository: Repository<TypeOrmUser>) {}
   async createUser(createUserDto: GenerateUserDto): Promise<{ id: string }> {
-    const savedUser = await this.save(createUserDto);
+    const savedUser = await this.userRepository.save(createUserDto);
 
     return { id: savedUser.id };
   }
@@ -25,7 +23,7 @@ export class TypeOrmUserRepository
     id?: string;
     email?: string;
   }): Promise<UserDto | null> {
-    const query = this.createQueryBuilder("user");
+    const query = this.userRepository.createQueryBuilder("user");
     if (!isNil(id)) {
       query.where("user.id = :id", { id });
     }

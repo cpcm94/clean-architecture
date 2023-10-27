@@ -1,5 +1,5 @@
 import { UserEntity } from "@/domain/entities/user.entity";
-import { TypeOrmUser } from "./type-orm-user";
+import { TypeOrmUser } from "./type-orm-user.entity";
 
 export class TypeOrmUserMapper {
   public static toOrmEntity(domainUser: UserEntity): TypeOrmUser {
@@ -25,6 +25,7 @@ export class TypeOrmUserMapper {
       name: ormUser.name,
       password: ormUser.password,
       salt: ormUser.salt,
+      companies: ormUser.companies,
     };
   }
 
